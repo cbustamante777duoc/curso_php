@@ -28,21 +28,35 @@ function Calculadora($num, $num2, $negrita=false) {
    $multiplcacion = $num*$num2;
    $division = $num/$num2;
    
+   $cadena_texto = "";
    if ($negrita) {
-       echo "<h1>";
+       $cadena_texto.= "<h1>";
        
    }
-   echo "Suma:".$suma."<br>";
-   echo "resta:".$resta."<br>";
-   echo "division:".$division."<br>";
-   echo "multiplicacion:".$multiplcacion."<br>";
+   $cadena_texto.= "Suma:".$suma."<br>";
+   $cadena_texto.= "resta:".$resta."<br>";
+   $cadena_texto.= "division:".$division."<br>";
+   $cadena_texto.= "multiplicacion:".$multiplcacion."<br>";
    
    if ($negrita) {
-       echo "</h1>";
+       $cadena_texto.= "</h1>";
        
    }
+   
+   return $cadena_texto;
 }
 
-Calculadora($_GET['numero1'], $_GET['numero2'], $_GET['negrita']);
+echo Calculadora($_GET['numero1'], $_GET['numero2'], $_GET['negrita']);
 
 //index.php?numero1=20&numero2=3&negrita=true
+
+function DevuelveNombre($nombre, $apellidos) {
+    $texto = "";
+    $texto.= "nombre= $nombre";
+    $texto.="<br>";
+    $texto.= "apelllido= $apellidos";
+    return $texto;
+}
+
+
+echo DevuelveNombre("cristian","bustamante");
